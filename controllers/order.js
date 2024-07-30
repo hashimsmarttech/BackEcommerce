@@ -56,7 +56,7 @@ export const newOrderCod = async (req, res) => {
     await sendMail(
       req.user.email,
       "Let's negotitate",
-      `Thanks your shopping of ₹ ${subTotal} from our Platform your order will be deliverd soon`
+      `Thanks your shopping of RS ${subTotal} from our Platform your order will be deliverd soon`
     );
 
     res.status(201).json({
@@ -221,7 +221,7 @@ export const newOrderOnline = async (req, res) => {
 
     const options = {
       amount: Number(subTotal) * 100,
-      currency: "INR",
+      currency: "RS",
     };
 
     const order = await instance.orders.create(options);
